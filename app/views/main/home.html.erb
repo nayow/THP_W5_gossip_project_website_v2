@@ -1,0 +1,24 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<h1 class="display-4 text-center">Les derniers potins en date</h1><br/>
+<div class="card-columns">
+  <% Gossip.all.each do |gossip| %>
+    <div class="card bg-light p-3">
+      <blockquote class="blockquote mb-0 card-body">
+        <p><%= link_to gossip.title, gossip_path(gossip.id) %></p>
+        <footer class="blockquote-footer">
+          <small class="text-muted">
+            <%= gossip.user.first_name %>
+          </small>
+        </footer>
+      </blockquote>
+    </div>
+  <% end %>
+</div>
+
+</body>
+</html>
