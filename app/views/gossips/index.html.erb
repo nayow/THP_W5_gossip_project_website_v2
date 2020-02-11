@@ -4,7 +4,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 </head>
 <body>
-<h1 class="display-4 text-center">Les derniers potins en date</h1><br/>
+<h1 class="display-4 text-center">Les derniers potins en date</h1>
+<p class="text-center"><%= link_to 'Balance le tien!', new_gossip_path %></p>
+<br/>
 <div class="card-columns">
   <% Gossip.all.each do |gossip| %>
     <div class="card bg-light p-3">
