@@ -11,7 +11,10 @@
   <% Gossip.all.each do |gossip| %>
     <div class="card bg-light p-3">
       <blockquote class="blockquote mb-0 card-body">
-        <p><%= link_to gossip.title, gossip_path(gossip.id) %></p>
+        <p>
+          <%= link_to gossip.title, gossip_path(gossip.id) %><br/>
+          <small><%= Comment.count(gossip.id) %> commentaires</small>
+        </p>
         <footer class="blockquote-footer">
           <small class="text-muted">
             <%= gossip.user.first_name %>
