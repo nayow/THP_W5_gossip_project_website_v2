@@ -1,9 +1,4 @@
-<html>
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-</head>
-<body class="text-center">
+<div class="text-center">
   <h1 class="display-4">Gossip n°<%= @gossip.id %></h1><br/>
   <h3><< <%= @gossip.content %> >></h3>
   <br/><hr><br/>
@@ -12,6 +7,11 @@
     <li>Auteur : <%= link_to @gossip.user.first_name, author_path(@gossip.user.id) %></li>
     <li>Ville : <%= link_to @gossip.user.city.name, city_path(@gossip.user.city_id) %></li>
     <li>Date de création : <%= @gossip.created_at %></li>
-  </ul>        
-</body>
-</html>
+  </ul><br/>
+  <p>
+    <%= link_to 'Modifier', edit_gossip_path %><br/>
+    <%= button_to "Supprimer", @gossip, :method => :delete %>
+  </p>
+  
+
+</div>
