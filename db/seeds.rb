@@ -30,6 +30,7 @@ end
     city_id: rand(City.first.id..City.last.id) # random city amongst the previously created ones
   )
 end
+User.create(first_name: 'anonymous', city_id: rand(City.first.id..City.last.id))
 
 # creating fake gossips
 20.times do

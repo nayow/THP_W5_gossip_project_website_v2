@@ -10,6 +10,7 @@
   <ul>
     <li>Titre : <%= @gossip.title %></li>
     <li>Auteur : <%= link_to @gossip.user.first_name, author_path(@gossip.user.id) %></li>
+    <li>Ville : <%= link_to @gossip.user.city.name, city_path(@gossip.user.city_id) %></li>
     <li>Date de création : <%= @gossip.created_at %></li>
   </ul>        
 </body>

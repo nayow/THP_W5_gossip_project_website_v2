@@ -1,18 +1,11 @@
-<html>
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-</head>
-<body class="text-center">
+<div class="text-center">
   <h1 class="display-4 text-center">Informations sur l'auteur <%= @author.first_name %></h1>
   <hr></br>
   <ul>
     <li>Nom complet : <%= @author.first_name %> <%= @author.last_name %></li>
     <li>Age : <%= @author.age %></li>
-    <li>Ville : <%= @author.first_name %></li>
+    <li>Ville : <%= link_to @author.city.name, city_path(@author.city_id) %></li>
     <li>Description : <%= @author.description %></li>
     <li>Email : <%= @author.email %></li>
   </ul>        
-
-</body>
-</html>
+</div>
