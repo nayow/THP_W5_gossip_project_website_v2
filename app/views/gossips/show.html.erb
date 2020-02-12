@@ -1,6 +1,11 @@
 <div class="text-center">
   <h1 class="display-4">Gossip n°<%= @gossip.id %></h1><br/>
   <h3><< <%= @gossip.content %> >></h3>
+  <small>
+    <% JoinTableGossipTag.retrieve_tags(@gossip.id).each do |tag| %>
+      <%= tag %>&nbsp;
+    <% end %>
+  </small>
   <br/><hr><br/>
   <ul>
     <li>Titre : <%= @gossip.title %></li>
