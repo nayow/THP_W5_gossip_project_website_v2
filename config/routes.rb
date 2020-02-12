@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'cities/show'
   root 'gossips#index'
   get '/team', to: 'statics#team'
   get '/contact', to: 'statics#contact'
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
   resources :gossips
   resources :authors, only: [:show]
   resources :cities, only: [:show]
+  resources :comments, only: [:create, :edit, :update, :destroy]
 
 end
 

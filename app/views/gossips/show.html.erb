@@ -9,9 +9,22 @@
     <li>Date de création : <%= @gossip.created_at %></li>
   </ul><br/>
   <p>
-    <%= link_to 'Modifier', edit_gossip_path %><br/>
-    <%= button_to "Supprimer", @gossip, :method => :delete %>
+    <%= link_to 'Modifier', edit_gossip_path %><%= button_to "Supprimer", @gossip, :method => :delete %>
   </p>
-  
-
+  <br/><hr><br/>
+  <p>Commentaires</p>
+  <p>
+    <% Comment.all.each do |comment| %>
+        <% if comment.gossip_id == @gossip.id %>
+          <%= comment.content %>&nbsp;[<%= link_to 'modifier', edit_comment_path(comment.id) %>]</br>
+        <% end %>
+    <% end %>   
+  </p>
+  <%= form_tag url_for(controller: 'comments', action: 'create', ), method: 'post' do %>
+    <%= label_tag '' %>
+    <%= text_field_tag 'comment' %>
+    <%= hidden_field_tag :id, @gossip.id %>
+    <%= submit_tag "Envoyer" %>
+  <% end %>
+  <br/>
 </div>

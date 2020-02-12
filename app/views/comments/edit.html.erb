@@ -1,21 +1,20 @@
-<h1 class="display-4 text-center">Modifie un potin!</h1>
+<h1 class="display-4 text-center">Modifie un commentaire!</h1>
 
 <hr><br/>
 
-<div class="container" style="align-items:center;">
+<div class="container text-center" style="align-items:center;">
   <div class="text-center">
     <%= form_tag url_for(action: 'update'), method: 'patch' do %>
-      <%= label_tag 'Title' %>
-      <%= text_field_tag 'title', @gossip.title %>
+      <%= label_tag '' %>
+      <%= text_area_tag 'content', @comment.content %>
       <br/>
-      <%= label_tag 'Content' %>
-      <%= text_area_tag 'content', @gossip.content %>
-      <br />
       <%= submit_tag "Envoyer" %>
     <% end %>
   </div>
   <br/>
-  <% if @gossip.errors.any? %>
+  <%= button_to "Supprimer ce commentaire", @comment, :method => :delete %>
+  <br/>
+  <% if @comment.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
       <ul>

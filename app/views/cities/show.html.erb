@@ -1,7 +1,12 @@
 <div class="text-center">
   <h1 class="display-4 text-center">Informations sur la ville de <%= @city.name %></h1>
-  <hr></br>
+  <hr><br/>
+  <p>Tous les potins de la ville :</p>
   <p>
-    Une ville magnifique...
-  </p>     
+    <% Gossip.all.each do |gossip| %>
+        <% if gossip.user.city.id == @city.id %>
+          <%= gossip.content %><br/>
+        <% end %>
+    <% end %>   
+  </p>
 </div>
