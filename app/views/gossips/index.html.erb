@@ -8,6 +8,11 @@
         <p>
           <%= link_to gossip.title, gossip_path(gossip.id) %><br/>
           <small><%= Comment.count(gossip.id) %> commentaires</small>
+          <% if current_user && current_user.id == gossip.user.id %>
+            <%= link_to 'Modifier', edit_gossip_path(gossip.id) %>
+          <% end %>
+          <%= button_to 'Like', gossip_likes_path(gossip.id), method: :post %>
+          <%= gossip.likes.count %> likes
         </p>
         <footer class="blockquote-footer">
           <small class="text-muted">

@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/">Accueil</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/team">Team</a>
@@ -31,6 +31,14 @@
             </li>
           </ul>
         </div>
+        <% if current_user %>
+          <%= button_to "Se déconnecter", session_path(session[:user_id]), method: :delete, class:"btn btn-primary"%>
+        <% else %>
+          <a class="nav-item"><%= link_to "Se connecter", new_session_path %>
+          </a>
+          <a class="nav-item"><%= link_to "S'inscrire", new_user_path %>
+          </a>
+        <% end %>
       </nav>
     </header>
     <br/>

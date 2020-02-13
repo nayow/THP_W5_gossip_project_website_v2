@@ -27,7 +27,8 @@ end
     description: Faker::Quote.most_interesting_man_in_the_world,
     email: Faker::Internet.email,
     age: rand(10..80),
-    city_id: rand(City.first.id..City.last.id) # random city amongst the previously created ones
+    city_id: rand(City.first.id..City.last.id), # random city amongst the previously created ones
+    password: Faker::String.random(length: 6)
   )
 end
 User.create(first_name: 'anonymous', city_id: rand(City.first.id..City.last.id))

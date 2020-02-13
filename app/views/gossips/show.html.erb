@@ -9,19 +9,21 @@
   <br/><hr><br/>
   <ul>
     <li>Titre : <%= @gossip.title %></li>
-    <li>Auteur : <%= link_to @gossip.user.first_name, author_path(@gossip.user.id) %></li>
+    <li>Auteur : <%= link_to @gossip.user.first_name, user_path(@gossip.user.id) %></li>
     <li>Ville : <%= link_to @gossip.user.city.name, city_path(@gossip.user.city_id) %></li>
     <li>Date de création : <%= @gossip.created_at %></li>
   </ul><br/>
   <p>
-    <%= link_to 'Modifier', edit_gossip_path %><%= button_to "Supprimer", @gossip, :method => :delete %>
+    <%= link_to 'Modifier', edit_gossip_path %>
+    <%= button_to "Supprimer", @gossip, :method => :delete %>
   </p>
   <br/><hr><br/>
   <p>Commentaires</p>
   <p>
     <% Comment.all.each do |comment| %>
         <% if comment.gossip_id == @gossip.id %>
-          <%= comment.content %>&nbsp;[<%= link_to 'modifier', edit_comment_path(comment.id) %>]</br>
+          <%= comment.content %>&nbsp;[<%= link_to 'modifier', edit_comment_path(comment.id) %>]
+          <br/>
         <% end %>
     <% end %>   
   </p>

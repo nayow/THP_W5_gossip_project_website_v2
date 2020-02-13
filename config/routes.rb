@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   get '/contact', to: 'statics#contact'
   get '/welcome/:name', to: 'statics#welcome', as: 'welcome'
   resources :gossips
-  resources :authors, only: [:show]
+  resources :users, only: [:show, :new, :create]
   resources :cities, only: [:show]
   resources :comments, only: [:create, :edit, :update, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :gossips do
+    resources :likes  
+  end
 
 end
 
