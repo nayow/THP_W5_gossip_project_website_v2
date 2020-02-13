@@ -1,15 +1,11 @@
 <h1 class="display-4 text-center">Login</h1>
-<hr><br/>
+<br/><hr><br/>
 <div class="container" style="align-items:center;">
-  <div class="text-center">
-    <%= form_tag url_for(action: 'create'), method: "post" do %>
-      <%= label_tag 'Email' %>
-      <%= text_area_tag 'email' %>
-      <br />
-      <%= label_tag 'Mot de passe' %>
-      <%= password_field_tag 'pw' %>
-      <br />
-      <%= submit_tag 'Se connecter' %>
+  <div class="text-center" style="margin-left:30%; margin-right:30%;">
+    <%= form_tag url_for(action: 'create'), method: "post" do %><br/>
+      <%= text_area_tag 'email' ,"", class:"form-control", placeholder:"Email" %><br/>
+      <%= password_field_tag 'pw' ,"", class:"form-control", placeholder:"Mot de passe" %><br/>
+      <%= submit_tag 'Envoyer', class:"btn btn-secondary" %>
     <% end %>
   </div>
 </div>

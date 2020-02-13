@@ -1,7 +1,13 @@
-<h1 class="display-4 text-center">Les derniers potins en date</h1>
-<p class="text-center"><%= link_to 'Balance le tien!', new_gossip_path %></p>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-3">Bienvenue,</h1>
+    <p class="lead text-muted">laisse éclater la comère qui sommeille en toi!</p><br/><br/>
+    <p><%= link_to 'Balance ton potin ici', new_gossip_path %></p>
+  </div>
+</section>
+
 <br/>
-<div class="card-columns">
+<div class="card-columns" style="margin-left:7%; margin-right:7%;">
   <% Gossip.all.each do |gossip| %>
     <div class="card bg-light p-3">
       <blockquote class="blockquote mb-0 card-body">

@@ -1,22 +1,14 @@
 <h1 class="display-4 text-center">Sign up</h1>
-<hr><br/>
+<br/><hr><br/>
 <div class="container" style="align-items:center;">
-  <div class="text-center">
-    <%= form_tag url_for(action: 'create'), method: "post" do %>
-        <%= label_tag 'Prénom' %>
-        <%= text_field_tag 'first_name' %>
-        <br/>
-        <%= label_tag 'Nom' %>
-        <%= text_area_tag 'last_name' %>
-        <br />
-        <%= label_tag 'Email' %>
-        <%= text_area_tag 'email' %>
-        <br />
-        <%= label_tag 'Mot de passe' %>
-        <%= password_field_tag 'pw' %>
-        <%= select_tag 'city', options_for_select(City.all.pluck('name')) %>
-        <br />
-      <%= submit_tag 'Envoyer' %>
+  <div class="text-center" style="margin-left:30%; margin-right:30%;">
+    <%= form_tag url_for(action: 'create'), method: "post" do %><br/>
+      <%= text_field_tag 'first_name' ,"", class:"form-control", placeholder:"Prénom" %><br/>
+      <%= text_area_tag 'last_name' ,"", class:"form-control", placeholder:"Nom" %><br/>
+      <%= text_area_tag 'email' ,"", class:"form-control", placeholder:"Email" %><br/>
+      <%= password_field_tag 'pw' ,"", class:"form-control", placeholder:"Mot de passe" %><br/>
+      <%= select_tag 'city', options_for_select(City.all.pluck('name')), class:"form-control" %><br/>
+      <%= submit_tag 'Envoyer', class:"btn btn-secondary" %>
     <% end %>
   </div>
   <br/>
@@ -30,3 +22,9 @@
     </div>
   <% end %>
 </div>
+
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
