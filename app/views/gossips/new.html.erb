@@ -1,16 +1,12 @@
 <h1 class="display-4 text-center">Balance ton potin!</h1>
 <hr><br/>
 <div class="container" style="align-items:center;">
-  <div class="text-center">
+  <div class="text-center" style="margin-left:30%; margin-right:30%;">
     <%= form_tag url_for(action: 'create'), method: "post" do %>
-      <%= label_tag 'Title' %>
-      <%= text_field_tag 'title' %>
-      <br/>
-      <%= label_tag 'Content' %>
-      <%= text_area_tag 'content' %>
-      <br />
-      <%= select_tag 'tag', options_for_select(Tag.all.pluck('title')) %>
-      <%= submit_tag 'Envoyer' %>
+      <%= text_field_tag 'title' ,"", class:"form-control", placeholder:"Titre" %><br/>
+      <%= text_area_tag 'content' ,"", class:"form-control", placeholder:"Contenu" %><br/>
+      <%= select_tag 'Tag', options_for_select(Tag.all.pluck('title')), class:"form-control" %><br/>
+      <%= submit_tag 'Envoyer', class:"btn btn-secondary" %>
     <% end %>
   </div>
   <br/>

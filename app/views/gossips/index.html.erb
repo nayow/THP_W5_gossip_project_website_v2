@@ -10,22 +10,19 @@
 <div class="card-columns" style="margin-left:7%; margin-right:7%;">
   <% Gossip.all.each do |gossip| %>
     <div class="card bg-light p-3">
-      <blockquote class="blockquote mb-0 card-body">
+      <div class="blockquote mb-0 card-body">
         <p>
           <%= link_to gossip.title, gossip_path(gossip.id) %><br/>
-          <small><%= Comment.count(gossip.id) %> commentaires</small>
+          <small>écrit par <%= gossip.user.first_name %></small><br/><br/>
+          <small class="text-muted text-center"><%= Comment.count(gossip.id) %> commentaires | <%= gossip.likes.count %> likes</small>
+        </p><hr>
+        <div class="row">
+          <%= button_to 'Like', gossip_likes_path(gossip.id), method: :post, class:"btn btn-secondary" %>
           <% if current_user && current_user.id == gossip.user.id %>
-            <%= link_to 'Modifier', edit_gossip_path(gossip.id) %>
+            <%= button_to 'Modifier', edit_gossip_path(gossip.id), method: :get, class:"btn btn-secondary" %>
           <% end %>
-          <%= button_to 'Like', gossip_likes_path(gossip.id), method: :post %>
-          <%= gossip.likes.count %> likes
-        </p>
-        <footer class="blockquote-footer">
-          <small class="text-muted">
-            <%= gossip.user.first_name %>
-          </small>
-        </footer>
-      </blockquote>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
